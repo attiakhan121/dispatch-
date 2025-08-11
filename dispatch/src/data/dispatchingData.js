@@ -1,4 +1,5 @@
 
+
 export const dispatchData = [
   {
     title: "Personal Touch",
@@ -29,3 +30,4 @@ export const dispatchData = [
     description: "We are constantly on the lookout for new drivers and carriers to join our growing team. Contact us to learn more about our current opportunities.",
   },
 ];
+

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import React from 'react';
 
 export const FaqsData = [
   {
@@ -32,3 +33,4 @@ export const FaqsData = [
     answer: "Getting started is easy! Simply contact us through our website or phone number. We'll have a brief consultation to understand your business and set you up with our services, so you can start getting loads immediately."
   }
 ];
+
