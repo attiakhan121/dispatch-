@@ -7,7 +7,7 @@ import {
   Linkedin,
   Facebook,
 } from 'lucide-react';
-import { FaqsData } from '../components/FaqsData';
+import { FaqsData } from '../data/FaqsData';
 import { FaqsCard } from '../components/FaqsCard';
 
 function HomePage() {
