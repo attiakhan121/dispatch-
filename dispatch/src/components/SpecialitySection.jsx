@@ -1,12 +1,13 @@
+
 import React, { useState, useEffect } from 'react';
 import { SpecialitiesData } from '../data/specialitiesData';
 
 export const SpecialitySection = () => {
   const [activeSpecialityId, setActiveSpecialityId] = useState(null);
 
-  // Set the default active speciality on mount, but only for desktop
+  // Default Active first one
   useEffect(() => {
-    if (window.innerWidth >= 1024) { // 1024px is the 'lg' breakpoint in Tailwind
+    if (window.innerWidth >= 1024) { 
       setActiveSpecialityId(SpecialitiesData[0].id);
     }
   }, []);
@@ -15,7 +16,6 @@ export const SpecialitySection = () => {
     setActiveSpecialityId(specialityId === activeSpecialityId ? null : specialityId);
   };
 
-  // Find the active speciality based on the state. If none is active, fall back to the first one for desktop
   const activeSpeciality = SpecialitiesData.find(s => s.id === activeSpecialityId) || (window.innerWidth >= 1024 ? SpecialitiesData[0] : null);
 
   return (
@@ -23,21 +23,19 @@ export const SpecialitySection = () => {
       id="specialities"
       className="relative min-h-screen overflow-hidden bg-[#002140] lg:bg-gray-100"
     >
-      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 ease-in-out"
         style={{
           backgroundImage: `url('${activeSpeciality?.backgroundImage}')`,
         }}
       />
-      {/* Overlay - Only visible when an item is active on mobile */}
+
       {activeSpecialityId !== null && (
         <div className="absolute inset-0 bg-black/20" />
       )}
 
-      {/* Desktop View */}
+      {/* Desktop */}
       <div className="relative z-10 hidden lg:flex min-h-screen">
-        {/* Left Sidebar */}
         <div className="flex-1 flex justify-center items-center">
           <div className="w-80 bg-[#002140] flex flex-col rounded-lg shadow-2xl ml-20">
             {SpecialitiesData.map((speciality) => (
@@ -60,18 +58,17 @@ export const SpecialitySection = () => {
             ))}
           </div>
         </div>
-        {/* Right Content Area */}
+
         <div className="flex-1 flex items-center justify-center px-8 lg:px-16">
           <div className="max-w-3xl">
-            {/* Header */}
             <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-6xl font-bold text-gray-800 mb-8 transform -translate-x-11 -translate-y-9">
                 Specialities
               </h2>
             </div>
-            {/* Active Content */}
+
             <div className="bg-white/30 backdrop-blur-md rounded-2xl p-8 lg:p-12 shadow-2xl transform -translate-x-9 -translate-y-9" >
-              {/* Icon and Title */}
+     
               <div className="flex items-center mb-8">
                 <div className="w-16 h-16 lg:w-20 lg:h-20 mr-6 bg-gray-200 rounded-lg flex items-center justify-center">
                   <img
@@ -84,11 +81,11 @@ export const SpecialitySection = () => {
                   {activeSpeciality?.title}
                 </h3>
               </div>
-              {/* Description */}
+    
               <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-8">
                 {activeSpeciality?.description}
               </p>
-              {/* Action Buttons */}
+            
               <div className="flex flex-col sm:flex-row gap-4">
                 <button className="px-8 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold text-lg">
                   Start Trucking Dispatch
@@ -102,7 +99,7 @@ export const SpecialitySection = () => {
         </div>
       </div>
 
-      {/* Mobile View */}
+      {/* Mobile */}
       <div className="relative z-10 lg:hidden flex flex-col items-center pt-8 px-4 bg-[#002140] min-h-screen">
         <h2 className="text-4xl font-bold text-white mb-8">
           Specialities
@@ -143,7 +140,6 @@ export const SpecialitySection = () => {
                   )}
                 </div>
               </div>
-              {/* Collapsible Content */}
               <div
                 className={`grid transition-all duration-300 ease-in-out ${
                   activeSpecialityId === speciality.id ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
