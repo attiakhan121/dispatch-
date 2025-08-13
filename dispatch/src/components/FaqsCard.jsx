@@ -24,7 +24,7 @@ export const FaqsCard = ({ faq, isOpen, onClick }) => {
               </svg>
             ) : (
               <svg 
-                className="w-4 h-4 text-black transition-transform duration-300 ease-in-out"
+                className="w-4 h-4 text-white transition-transform duration-300 ease-in-out"
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"

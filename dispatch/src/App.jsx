@@ -11,6 +11,7 @@ import ScrollUp from "./components/ScrollUp";
 import Power_Only from './pages/Power_Only';
 import Hotshot from './pages/Hotshot'; 
 import Privacy_Notice from './pages/Privacy_Notice';
+import StepDeck from './pages/StepDeck';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/power-only" element={<Power_Only />} /> 
         <Route path="/hotshot" element={<Hotshot />} /> 
+        <Route path="/flat-bed-step-deck" element={<StepDeck />}/> 
         <Route path="/privacy-notice" element={<Privacy_Notice/>} />
       </Routes>
       <ScrollUp />
