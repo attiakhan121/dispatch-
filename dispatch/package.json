@@ -11,8 +11,13 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "country-flag-icons": "^1.5.19",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.539.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-international-phone": "^4.6.0",
+    "react-phone-input-2": "^2.15.1",
     "react-router-dom": "^7.7.1",
     "tailwindcss": "^4.1.11"
   },
