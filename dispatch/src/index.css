@@ -1,20 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
-
 /* Custom Theme Variables */
-:root {
-  --color-bg: #0b1c2d;
-  --color-dark-blue: #132c44;
-  --color-accent: #ff6b00;
+@theme {
+  --color-bg: #002147;
+  --color-dark-blue: #1e293b;
+  --color-accent: #f97316;
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-soft-white: #999999;
+  --color-soft-white: #d3dce6d7;
   --color-border-blue: #708090;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: var(--color-bg);
   color: #d3dce6;
 }
@@ -23,7 +22,7 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px); 
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -32,7 +31,7 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 1s ease-out forwards; 
+  animation: fadeIn 1s ease-out forwards;
 }
 @keyframes beat {
   0%, 100% {
@@ -45,4 +44,23 @@ body {
 
 .animate-beat {
   animation: beat 1s ease-in-out infinite;
+
+}
+
+@layer utilities {
+  .container {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @media (min-width: 450px) {
+    .container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
 }
