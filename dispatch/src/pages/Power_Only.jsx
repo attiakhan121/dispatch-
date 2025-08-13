@@ -18,8 +18,8 @@ export default function Power_Only(){
                 <p className='text-[11px] sm:text-[13px] md:text-[15px] leading-relaxed text-lg'>
                      Our <a className=" underline decoration-gray-300 "
                       href="https://resolute-logistics.com/"
-                       target="_blank"
-                      >dispatch company</a> solves this problem thanks to our experts with years of experience in freight brokerage and contacts established with top brokers in the U.S.
+                       
+                      > dispatch company</a> solves this problem thanks to our experts with years of experience in freight brokerage and contacts established with top brokers in the U.S.
                 </p>
                 <p className='text-[11px] sm:text-[13px] md:text-[15px] leading-relaxed text-lg'>You don&rsquo;t need to join the USA Truck Power Only program or hunt for power only loads all by yourself since our dispatching company will provide you with a much better option:
                 </p>

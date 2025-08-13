@@ -4,7 +4,7 @@ const Choose = () =>{
     return(
         <section className=' py-12 px-6 md:px-12 bg-[#002140]'>
              <h2 className='mb--24 px-4 py-4 pr-10 text-2xl sm:text-3xl md:text-4xl font-bold  text-white max-w-[800px] '>
-                      Benefits of <span className='text-orange-500'> Hotshot Dispatch ' </span> 
+                      Benefits of <span className='text-orange-500'> Hotshot Dispatch </span> 
                        in Resolute Logistics
                 </h2>
                 <section className='px-4 py-4 pr-10 text-gray-200 space-y-6 max-w-[920px] '>

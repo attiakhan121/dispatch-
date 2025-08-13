@@ -184,7 +184,9 @@ const Form = () => {
                 />
                 <span className="ml-2">
                   I have read and agree to{' '}
-                  <a href="/privacy-notice" className="underline hover:text-orange-400">
+                  <a
+                   href="/privacy_notice" 
+                   className="underline hover:text-orange-400">
                     privacy notice
                   </a>
                 </span>
