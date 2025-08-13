@@ -15,7 +15,10 @@ import { VideoModal } from '../components/VideoModal';
 import { TruckDispatchingSection } from '../components/TruckDispatchSection';
 import { Workflow } from '../components/Workflow';
 import { SpecialitySection } from '../components/SpecialitySection';
-//import Testimonials from '../components/Testimonials';
+import ServicesTwo from "./factoring/servicesTwo";
+import Testimonials from '../components/Testimonials';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function HomePage() {
   const [openSection, setOpenSection] = useState(null);
@@ -39,6 +42,14 @@ function HomePage() {
   const handleVideoClose = () => {
     setIsVideoModal(false);
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror:true
+    });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -139,7 +150,7 @@ function HomePage() {
       </section>
 
 
-       {/* Section 2 - What We Do */}
+        {/* Section 2 - What We Do */}
       <TruckDispatchingSection />
 
       {/* Section 3 - Specialities */}
@@ -163,7 +174,7 @@ function HomePage() {
         
         <div className="relative z-10 max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
               Why choose Resolute Logistics
             </h2>
@@ -173,19 +184,19 @@ function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             {/* Left Side - Video */}
-            <div className="flex justify-center lg:justify-center lg:pr-8">
-  <div
-    className="relative group cursor-pointer"
-    onClick={handleVideoPlay}
-  >
-    <div className="w-30 h-30 lg:w-45 lg:h-45 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-2xl  transition-transform duration-300 animate-beat">
-      <Play className="w-16 h-16 lg:w-17 lg:h-17 text-white ml-2" fill="white" />
-    </div>
-  </div>
-</div>
+            <div className="flex justify-center lg:justify-center lg:pr-8" data-aos="fade-right">
+              <div
+                className="relative group cursor-pointer"
+                onClick={handleVideoPlay}
+              >
+                <div className="w-30 h-30 lg:w-45 lg:h-45 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-2xl transition-transform duration-300 animate-beat">
+                  <Play className="w-16 h-16 lg:w-17 lg:h-17 text-white ml-2" fill="white" />
+                </div>
+              </div>
+            </div>
 
             {/* Right Side - Text Content */}
-            <div className="text-white space-y-6">
+            <div className="text-white space-y-6" data-aos="fade-left">
               <p className="text-base lg:text-lg leading-relaxed">
                 We provide dispatching services truckers trust in because we are 
                 professionals with years of experience in the brokerage and 
@@ -225,12 +236,12 @@ function HomePage() {
           </div>
 
           {/* Statistics Section */}
-          <div className="mt-20 pt-16 border-t border-gray-700">
+          <div className="mt-20 pt-16 border-t border-gray-700" data-aos="fade-up">
             <StatsSection />
           </div>
 
           {/* Bottom Tagline */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-16" data-aos="fade-up">
             <h3 className="text-2xl lg:text-4xl font-bold text-orange-400">
               Making your haul life easier!
             </h3>
@@ -241,17 +252,17 @@ function HomePage() {
       {/* Section 6 - Prices */}
       <section
         id="prices"
-        className="py-20 px-10 bg-gray-100 text-gray-800 text-center"
+        className="bg-[#002140]"
       >
-        <h2 className="text-4xl font-bold mb-4">Prices</h2>
+      { <ServicesTwo /> }
       </section>
 
       {/* Section 7 - Testimonials */}
-      <section
+        <section
         id="testimonials"
         className="py-20 px-10 bg-[#002147] text-white text-center"
       >
-      {/** <Testimonials />*/} 
+      { <Testimonials />} 
       </section>
 
 
@@ -261,7 +272,7 @@ function HomePage() {
         className="py-16 px-4 sm:px-6 lg:px-8 bg-[#002140] text-white"
       >
         <div className="w-full max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
               FAQs about Trucking Dispatch
             </h1>
@@ -275,13 +286,15 @@ function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             {[FaqsColumn1, FaqsColumn2].map((column, i) => (
               <div key={i} className="space-y-4">
-                {column.map((faq) => (
-                  <FaqsCard
-                    key={faq.id}
-                    faq={faq}
-                    isOpen={openFaqId === faq.id}
-                    onClick={() => handleFaqToggle(faq.id)}
-                  />
+                {column.map((faq, index) => (
+                  <div data-aos="fade-up" data-aos-delay={index * 100}>
+                    <FaqsCard
+                      key={faq.id}
+                      faq={faq}
+                      isOpen={openFaqId === faq.id}
+                      onClick={() => handleFaqToggle(faq.id)}
+                    />
+                  </div>
                 ))}
               </div>
             ))}
@@ -297,16 +310,7 @@ function HomePage() {
         title="Why Choose Resolute Logistics"
       />
 
-      {/* Scroll to Top Button */}
-      {showScrollToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-10 right-10 bg-orange-400 text-[#002147] p-3 rounded-xl shadow-lg hover:bg-orange-300 transition-colors duration-300 z-50"
-          aria-label="Scroll to top"
-        >
-          <ChevronUp className="w-6 h-6" />
-        </button>
-      )}
+      
     </div>
   );
 }

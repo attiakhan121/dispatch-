@@ -1,19 +1,36 @@
-
 import React, { useState, useEffect } from 'react';
 import { SpecialitiesData } from '../data/specialitiesData';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export const SpecialitySection = () => {
   const [activeSpecialityId, setActiveSpecialityId] = useState(null);
+  const [cardKey, setCardKey] = useState(0); 
 
-  // Default Active first one
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+       once: false,
+      mirror:true, 
+      offset: 100,
+      easing: 'ease-out-cubic'
+    });
+
+    // Default Active first one on desktop
     if (window.innerWidth >= 1024) { 
       setActiveSpecialityId(SpecialitiesData[0].id);
     }
+
+    AOS.refresh();
   }, []);
+
+  useEffect(() => {
+    setCardKey(prev => prev + 1);
+  }, [activeSpecialityId]);
 
   const handleSpecialityClick = (specialityId) => {
     setActiveSpecialityId(specialityId === activeSpecialityId ? null : specialityId);
+    setTimeout(() => AOS.refresh(), 50);
   };
 
   const activeSpeciality = SpecialitiesData.find(s => s.id === activeSpecialityId) || (window.innerWidth >= 1024 ? SpecialitiesData[0] : null);
@@ -37,10 +54,16 @@ export const SpecialitySection = () => {
       {/* Desktop */}
       <div className="relative z-10 hidden lg:flex min-h-screen">
         <div className="flex-1 flex justify-center items-center">
-          <div className="w-80 bg-[#002140] flex flex-col rounded-lg shadow-2xl ml-20">
-            {SpecialitiesData.map((speciality) => (
+          <div 
+            className="w-80 bg-[#002140] flex flex-col rounded-lg shadow-2xl ml-20"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            {SpecialitiesData.map((speciality, index) => (
               <div
                 key={speciality.id}
+                data-aos="fade-up"
+                data-aos-delay={300 + (index * 100)}
                 onClick={() => setActiveSpecialityId(speciality.id)}
                 className={`flex-1 flex flex-col justify-center px-8 py-6 cursor-pointer transition-all duration-300 border-b border-white/10 last:border-b-0 first:rounded-t-lg last:rounded-b-lg
                   ${activeSpecialityId === speciality.id
@@ -59,17 +82,34 @@ export const SpecialitySection = () => {
           </div>
         </div>
 
+
         <div className="flex-1 flex items-center justify-center px-8 lg:px-16">
           <div className="max-w-3xl">
-            <div className="text-center mb-12">
+
+            <div 
+              className="text-center mb-12"
+              data-aos="fade-down"
+              data-aos-delay="100"
+            >
               <h2 className="text-4xl lg:text-6xl font-bold text-gray-800 mb-8 transform -translate-x-11 -translate-y-9">
                 Specialities
               </h2>
             </div>
 
-            <div className="bg-white/30 backdrop-blur-md rounded-2xl p-8 lg:p-12 shadow-2xl transform -translate-x-9 -translate-y-9" >
-     
-              <div className="flex items-center mb-8">
+      
+            <div 
+              key={cardKey} 
+              className="bg-white/30 backdrop-blur-md rounded-2xl p-8 lg:p-12 shadow-2xl transform -translate-x-9 -translate-y-9"
+              data-aos="fade-left"
+              data-aos-duration="600"
+            >
+
+              <div 
+                className="flex items-center mb-8"
+                data-aos="zoom-in"
+                data-aos-delay="200"
+                data-aos-duration="500"
+              >
                 <div className="w-16 h-16 lg:w-20 lg:h-20 mr-6 bg-gray-200 rounded-lg flex items-center justify-center">
                   <img
                     src={activeSpeciality?.icon}
@@ -82,11 +122,23 @@ export const SpecialitySection = () => {
                 </h3>
               </div>
     
-              <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-8">
+         
+              <p 
+                className="text-base lg:text-lg text-gray-700 leading-relaxed mb-8"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="500"
+              >
                 {activeSpeciality?.description}
               </p>
             
-              <div className="flex flex-col sm:flex-row gap-4">
+       
+              <div 
+                className="flex flex-col sm:flex-row gap-4"
+                data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="500"
+              >
                 <button className="px-8 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold text-lg">
                   Start Trucking Dispatch
                 </button>
@@ -101,15 +153,29 @@ export const SpecialitySection = () => {
 
       {/* Mobile */}
       <div className="relative z-10 lg:hidden flex flex-col items-center pt-8 px-4 bg-[#002140] min-h-screen">
-        <h2 className="text-4xl font-bold text-white mb-8">
+
+        <h2 
+          className="text-4xl font-bold text-white mb-8"
+          data-aos="fade-down"
+          data-aos-delay="100"
+        >
           Specialities
         </h2>
-        <div className="w-full max-w-md">
+
+  
+        <div 
+          className="w-full max-w-md"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           {SpecialitiesData.map((speciality, index) => (
             <div
               key={speciality.id}
               className={`border-b border-white/20 ${index === SpecialitiesData.length - 1 ? 'border-b-0' : ''}`}
+              data-aos="fade-up"
+              data-aos-delay={300 + (index * 100)}
             >
+         
               <div
                 onClick={() => handleSpecialityClick(speciality.id)}
                 className={`flex justify-between items-center px-6 py-4 cursor-pointer transition-all duration-300 group
@@ -140,6 +206,8 @@ export const SpecialitySection = () => {
                   )}
                 </div>
               </div>
+
+         
               <div
                 className={`grid transition-all duration-300 ease-in-out ${
                   activeSpecialityId === speciality.id ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'

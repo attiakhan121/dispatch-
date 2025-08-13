@@ -1,7 +1,12 @@
+// src/components/ScrollToTopButton.js
+
 import { useEffect, useState } from "react";
+import { ChevronUp } from "lucide-react";
 
 export default function ScrollUp() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [showButton, setShowButton] = useState(false);
+
+  // This function scrolls the window back to the top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -10,30 +15,33 @@ export default function ScrollUp() {
   };
 
   useEffect(() => {
+    // This function shows/hides the button based on scroll position
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
+      if (window.scrollY > 300) {
+        setShowButton(true);
       } else {
-        setIsVisible(false);
+        setShowButton(false);
       }
     };
 
+    // Add the scroll event listener when the component mounts
     window.addEventListener("scroll", toggleVisibility);
 
+    // Clean up the event listener when the component unmounts
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   return (
-    <div className="fixed right-8 bottom-8 z-99">
-      {isVisible && (
-        <div
+    <>
+      {showButton && (
+        <button
           onClick={scrollToTop}
-          aria-label="scroll to top"
-          className="bg-accent hover:shadow-lg flex h-10 w-10 cursor-pointer items-center justify-center rounded-md text-white shadow-md transition duration-300 ease-in-out"
+          className="fixed bottom-10 right-10 bg-orange-400 text-[#002147] p-3 rounded-xl shadow-lg hover:bg-orange-500 transition-colors duration-300 z-50"
+          aria-label="Scroll to top"
         >
-          <span className="mt-2 h-3 w-3 rotate-45 border-t border-l border-white"></span>
-        </div>
+          <ChevronUp className="w-6 h-6" />
+        </button>
       )}
-    </div>
+    </>
   );
 }

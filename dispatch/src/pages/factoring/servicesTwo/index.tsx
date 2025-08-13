@@ -110,7 +110,7 @@ const ServicesTwo = () => {
             <ServicesBox
               packageName1="Factoring + Dispatch"
               packageName2="Plus"
-              subtitle="Full-service support for seamless operations."
+              subtitle="Full-service support for seamless operations. Best package of ours."
             >
               <OfferList
                 text="Semi trucks – 7% of Gross Revenue"

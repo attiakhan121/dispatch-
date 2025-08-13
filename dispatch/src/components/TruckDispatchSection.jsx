@@ -1,33 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DropdownItem } from './DropdownItem';
 import { truckDispatchingData } from '../data/dispatchingData';
 import truck1 from '../assets/truck1.svg';
-import bgImage from '../assets/bgImage.jpg'; 
+import bgImage from '../assets/bgImage.jpg';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export const TruckDispatchingSection = () => {
   const [openDropdownId, setOpenDropdownId] = useState(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
+    AOS.init({
+      duration: 1000,
+       once: false,
+      mirror:true, 
+      offset: 100,
+      easing: 'ease-out-cubic'
+    });
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    AOS.refresh();
   }, []);
 
   const handleDropdownClick = (id) => {
@@ -36,24 +27,22 @@ export const TruckDispatchingSection = () => {
 
   return (
     <section
-      ref={sectionRef}
       id="what-we-do"
       className="relative min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-cover bg-center"
       style={{
         backgroundImage: `url(${bgImage})`,
       }}
     >
-
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-90" />
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
- 
           <div className="space-y-8">
-            <div className={`space-y-6 transform transition-all duration-1000 ease-out ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              }`}
+            <div 
+              className="space-y-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
             >
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
                 What Does Truck Dispatching Include
@@ -66,10 +55,10 @@ export const TruckDispatchingSection = () => {
               </p>
             </div>
 
-            <div className={`relative max-w-lg transition-all duration-1000 ease-out ${
-                isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
-              }`}
-              style={{ transitionDelay: '0.3s' }}
+            <div 
+              className="relative max-w-lg"
+              data-aos="fade-right"
+              data-aos-delay="300"
             >
               <img 
                 src={truck1} 
@@ -78,27 +67,33 @@ export const TruckDispatchingSection = () => {
               />
               
               <div className="relative mt-4">
-                <div className={`h-1 bg-orange-400 transition-all duration-1000 ease-out ${
-                    isVisible ? 'w-full' : 'w-0'
-                  }`} 
-                  style={{ transitionDelay: '0.8s' }}
+                <div 
+                  className="h-1 bg-orange-400"
+                  data-aos="fade-right"
+                  data-aos-delay="800"
+                  data-aos-duration="1200"
                 />
               </div>
             </div>
           </div>
 
-          <div className={`space-y-0 transition-all duration-1000 ease-out ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}
-            style={{ transitionDelay: '0.6s' }}
+          <div 
+            className="space-y-0"
+            data-aos="fade-left"
+            data-aos-delay="600"
           >
-            {truckDispatchingData.map((item) => (
-              <DropdownItem
+            {truckDispatchingData.map((item, index) => (
+              <div
                 key={item.id}
-                item={item}
-                isOpen={openDropdownId === item.id}
-                onClick={handleDropdownClick}
-              />
+                data-aos="fade-up"
+                data-aos-delay={700 + (index * 100)}
+              >
+                <DropdownItem
+                  item={item}
+                  isOpen={openDropdownId === item.id}
+                  onClick={handleDropdownClick}
+                />
+              </div>
             ))}
           </div>
         </div>
