@@ -15,7 +15,7 @@ import { VideoModal } from '../components/VideoModal';
 import { TruckDispatchingSection } from '../components/TruckDispatchSection';
 import { Workflow } from '../components/Workflow';
 import { SpecialitySection } from '../components/SpecialitySection';
-import Testimonials from '../components/Testimonials';
+//import Testimonials from '../components/Testimonials';
 
 function HomePage() {
   const [openSection, setOpenSection] = useState(null);
@@ -136,6 +136,122 @@ function HomePage() {
             </button>
           </div>
         </div>
+      </section>
+
+
+       {/* Section 2 - What We Do */}
+      <TruckDispatchingSection />
+
+      {/* Section 3 - Specialities */}
+      <SpecialitySection />
+
+      {/* Section 4 - Workflow */}
+      <Workflow />
+
+      {/* Section 5 - Why Choose Us */}
+      <section
+        id="why-choose-us"
+        className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8"
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://resolute-logistics.com/optimized/uploads/main_page/whyChooseUs-bg_1366@2x.webp')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+              Why choose Resolute Logistics
+            </h2>
+          </div>
+
+          {/* Content Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            {/* Left Side - Video */}
+            <div className="flex justify-center lg:justify-center lg:pr-8">
+  <div
+    className="relative group cursor-pointer"
+    onClick={handleVideoPlay}
+  >
+    <div className="w-30 h-30 lg:w-45 lg:h-45 rounded-full bg-gradient-to-br from-orange-400 to-orange-500 flex items-center justify-center shadow-2xl  transition-transform duration-300 animate-beat">
+      <Play className="w-16 h-16 lg:w-17 lg:h-17 text-white ml-2" fill="white" />
+    </div>
+  </div>
+</div>
+
+            {/* Right Side - Text Content */}
+            <div className="text-white space-y-6">
+              <p className="text-base lg:text-lg leading-relaxed">
+                We provide dispatching services truckers trust in because we are 
+                professionals with years of experience in the brokerage and 
+                deep knowledge of ins and outs. We know the specifics of the 
+                equipment along with federal and local regulations. Our 
+                dispatcher company constantly monitors freight rates, load 
+                boards, brokers, and shippers to spot the best deals for our 
+                clientage.
+              </p>
+              
+              <p className="text-base lg:text-lg leading-relaxed">
+                Unlike many other truck dispatch companies, Resolute Logistics 
+                focuses on a comprehensive approach and provides end-to-end 
+                services to relieve drivers from the stress of hunting for loads, 
+                making calls, doing paperwork, or struggling for payment. Our 
+                truck dispatch service ensures ongoing training for dispatchers 
+                and encourages them to anticipate problems before they arise. 
+                We foster agility, effective teamwork, and a responsible attitude 
+                to drivers under our care.
+              </p>
+              
+              <p className="text-xl lg:text-2xl font-semibold text-orange-400 mt-8">
+                Our aim is to keep your trucks busy and smooth the way for 
+                your growth!
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 mt-10">
+                <button className="px-8 py-3 bg-transparent border-2 border-orange-400 text-orange-400 rounded-full hover:bg-orange-400 hover:text-white transition duration-300 font-semibold">
+                  Start Trucking Dispatch
+                </button>
+                <button className="px-8 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold">
+                  Prices
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Statistics Section */}
+          <div className="mt-20 pt-16 border-t border-gray-700">
+            <StatsSection />
+          </div>
+
+          {/* Bottom Tagline */}
+          <div className="text-center mt-16">
+            <h3 className="text-2xl lg:text-4xl font-bold text-orange-400">
+              Making your haul life easier!
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6 - Prices */}
+      <section
+        id="prices"
+        className="py-20 px-10 bg-gray-100 text-gray-800 text-center"
+      >
+        <h2 className="text-4xl font-bold mb-4">Prices</h2>
+      </section>
+
+      {/* Section 7 - Testimonials */}
+      <section
+        id="testimonials"
+        className="py-20 px-10 bg-[#002147] text-white text-center"
+      >
+      {/** <Testimonials />*/} 
       </section>
 
 
