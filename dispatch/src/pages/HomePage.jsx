@@ -6,15 +6,23 @@ import {
   Youtube,
   Linkedin,
   Facebook,
+  Play,
 } from 'lucide-react';
 import { FaqsData } from '../data/FaqsData';
 import { FaqsCard } from '../components/FaqsCard';
+import { StatsSection } from '../components/StatsSection';
+import { VideoModal } from '../components/VideoModal';
+import { TruckDispatchingSection } from '../components/TruckDispatchSection';
+import { EnhancedWorkflow } from '../components/EnhancedWorkflow';
+import { SpecialitySection } from '../components/SpecialitySection';
+import Testimonials from '../components/Testimonials';
 
 function HomePage() {
   const [openSection, setOpenSection] = useState(null);
   const [truckPosition, setTruckPosition] = useState(0);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const [openFaqId, setOpenFaqId] = useState(null);
+  const [isVideoModalOpen, setIsVideoModal] = useState(false);
 
   const handleDropdownClick = (index) => {
     setOpenSection(openSection === index ? null : index);
@@ -22,6 +30,14 @@ function HomePage() {
 
   const handleFaqToggle = (id) => {
     setOpenFaqId((prevId) => (prevId === id ? null : id));
+  };
+
+  const handleVideoPlay = () => {
+    setIsVideoModal(true);
+  };
+
+  const handleVideoClose = () => {
+    setIsVideoModal(false);
   };
 
   useEffect(() => {
@@ -55,7 +71,6 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#002147] text-white font-sans antialiased">
-
       {/* Hero Section */}
       <section
         id="hero"
@@ -123,77 +138,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Section 2 - What We Do */}
-      <section
-        id="what-we-do"
-        className="relative h-screen flex items-center justify-center py-20 px-10 overflow-hidden"
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://resolute-logistics.com/optimized/uploads/main_page/what-we-do-bg_320.jpg')`,
-          }}
-        />
-        <h1 className="relative z-10 text-4xl font-bold text-white">
-          What does truck dispatching include
-        </h1>
-      </section>
-
-      {/* Section 3 - Specialities */}
-      <section
-        id="specialities"
-        className="py-20 px-10 bg-gray-100 text-gray-800 text-center"
-      >
-        <h2 className="text-4xl font-bold mb-4">Specialities</h2>
-      </section>
-
-      {/* Section 4 - Workflow */}
-      <section
-        id="work-flow"
-        className="relative py-20 px-10 flex items-center justify-center"
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://resolute-logistics.com/optimized/uploads/main_page/how_we_work_bg_1200@2x.webp')`,
-          }}
-        />
-        <h2 className="relative z-10 text-4xl font-bold text-white">
-          Work Flow
-        </h2>
-      </section>
-
-      {/* Section 5 - Why Choose Us */}
-      <section
-        id="why-choose-us"
-        className="relative py-20 px-10 flex items-center justify-center"
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://resolute-logistics.com/optimized/uploads/main_page/whyChooseUs-bg_1366@2x.webp')`,
-          }}
-        />
-        <h2 className="relative z-10 text-4xl font-bold text-white">
-          Why choose Resolute Logistics
-        </h2>
-      </section>
-
-      {/* Section 6 - Prices */}
-      <section
-        id="prices"
-        className="py-20 px-10 bg-gray-100 text-gray-800 text-center"
-      >
-        <h2 className="text-4xl font-bold mb-4">Prices</h2>
-      </section>
-
-      {/* Section 7 - Testimonials */}
-      <section
-        id="testimonials"
-        className="py-20 px-10 bg-[#002147] text-white text-center"
-      >
-        <h2 className="text-4xl font-bold mb-4">Testimonials</h2>
-      </section>
 
       {/* Section 8 - FAQs */}
       <section
@@ -228,6 +172,14 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={handleVideoClose}
+        videoUrl="https://www.youtube.com/embed/4zHPaCJjURU"
+        title="Why Choose Resolute Logistics"
+      />
 
       {/* Scroll to Top Button */}
       {showScrollToTop && (

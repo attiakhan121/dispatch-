@@ -1,6 +1,4 @@
-
-
-
+// Updated Footer.jsx
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,33 +6,41 @@ import { ChevronDown, ChevronUp, Youtube, Linkedin, Facebook } from 'lucide-reac
 
 const Footer = () => {
   const [isDispatchOpen, setIsDispatchOpen] = useState(false);
+  const [isPagesOpen, setIsPagesOpen] = useState(false);
 
   const toggleDispatch = () => {
     setIsDispatchOpen(!isDispatchOpen);
   };
 
+  const togglePages = () => {
+    setIsPagesOpen(!isPagesOpen);
+  };
+
   const dispatchServices = [
     'Box truck',
-    'Dry Van', 
+    'Dry Van',
     'Reefer',
     'Power Only',
     'Hotshot',
     'Flat Bed / Step Deck'
   ];
 
+  const companyPages = [
+    'About',
+    'Prices',
+    'Contacts',
+    'Blog'
+  ];
+
   return (
     <footer className="bg-[#002147] text-white">
-      
+
       {/* Desktop */}
       <div className="hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex justify-between items-start">
             <div className="flex-shrink-0">
-              <img
-                src="/src/assets/logo.svg"
-                alt="Resolute Logistics Logo"
-                className="h-12 w-auto"
-              />
+              <span className="text-orange-400 font-bold text-xl">FastEagleLogistics</span>
             </div>
 
             <div className="ml-16 flex-shrink-0">
@@ -45,7 +51,7 @@ const Footer = () => {
                 >
                   Track dispatcher training
                 </a>
-                
+
                 <a
                   href="#"
                   className="text-white hover:text-orange-400 transition-colors duration-200 text-base block"
@@ -66,7 +72,7 @@ const Footer = () => {
                     )}
                     Dispatch
                   </button>
-                  
+
                   <AnimatePresence>
                     {isDispatchOpen && (
                       <motion.div
@@ -124,22 +130,22 @@ const Footer = () => {
             <div className="mr-16 text-right flex-shrink-0">
               <div className="text-orange-400 text-base font-semibold mb-4">USA, CANADA</div>
               <div className="mb-4">
-                <a 
-                  href="tel:+19292141820" 
+                <a
+                  href="tel:+19292141820"
                   className="text-white hover:text-orange-400 transition-colors duration-200 text-base block mb-2"
                 >
                   +1 (929) 214-1820
                 </a>
               </div>
               <div className="mb-6">
-                <a 
-                  href="mailto:hello@resolute-logistics.com" 
+                <a
+                  href="mailto:hello@resolute-logistics.com"
                   className="text-white hover:text-orange-400 transition-colors duration-200 text-base block"
                 >
                   hello@resolute-logistics.com
                 </a>
               </div>
-              
+
               <div className="flex justify-end space-x-3">
                 <a
                   href="#"
@@ -177,7 +183,7 @@ const Footer = () => {
                   DevSum All Rights Reserved.
                 </div>
               </div>
-              
+
               <div className="flex gap-6 text-sm">
                 <a href="#" className="text-white hover:text-orange-400 transition-colors duration-200">
                   Sitemap
@@ -197,11 +203,7 @@ const Footer = () => {
       {/* Mobile*/}
       <div className="md:hidden px-4 py-8">
         <div className="text-center mb-8">
-          <img
-            src="/src/assets/logo.svg"
-            alt="Resolute Logistics Logo"
-            className="h-12 w-auto mx-auto"
-          />
+          <div className="text-orange-400 font-bold text-xl">FastEagleLogistics</div>
         </div>
 
         {/* Services Links */}
@@ -212,7 +214,7 @@ const Footer = () => {
           >
             Track dispatcher training
           </a>
-          
+
           <a
             href="#"
             className="text-white hover:text-orange-400 transition-colors duration-200 text-lg block"
@@ -233,7 +235,7 @@ const Footer = () => {
               )}
               Dispatch
             </button>
-            
+
             <AnimatePresence>
               {isDispatchOpen && (
                 <motion.div
@@ -256,56 +258,65 @@ const Footer = () => {
               )}
             </AnimatePresence>
           </div>
-        </div>
 
-        {/* Company Pages*/}
-        <div className="text-center space-y-6 mb-8">
-          <a
-            href="#"
-            className="text-white hover:text-orange-400 transition-colors duration-200 text-lg block"
-          >
-            About
-          </a>
-          <a
-            href="#"
-            className="text-white hover:text-orange-400 transition-colors duration-200 text-lg block"
-          >
-            Prices
-          </a>
-          <a
-            href="#"
-            className="text-white hover:text-orange-400 transition-colors duration-200 text-lg block"
-          >
-            Contacts
-          </a>
-          <a
-            href="#"
-            className="text-white hover:text-orange-400 transition-colors duration-200 text-lg block"
-          >
-            Blog
-          </a>
+          {/* Pages Dropdown */}
+          <div>
+            <button
+              onClick={togglePages}
+              className="flex items-center justify-center text-white hover:text-orange-400 transition-colors duration-200 text-lg mx-auto"
+            >
+              {isPagesOpen ? (
+                <ChevronUp className="w-5 h-5 mr-2 text-white" />
+              ) : (
+                <ChevronDown className="w-5 h-5 mr-2 text-white" />
+              )}
+              Pages
+            </button>
+
+            <AnimatePresence>
+              {isPagesOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.45, ease: 'easeInOut' }}
+                  className="overflow-hidden mt-4 text-center space-y-3"
+                >
+                  {companyPages.map((page, index) => (
+                    <a
+                      key={index}
+                      href="#"
+                      className="text-white hover:text-orange-400 transition-colors duration-200 text-base block"
+                    >
+                      {page}
+                    </a>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Contact Info*/}
         <div className="text-center mb-8">
           <div className="text-orange-400 text-lg font-semibold mb-6">USA, CANADA</div>
           <div className="mb-4">
-            <a 
-              href="tel:+19292141820" 
+            <a
+              href="tel:+19292141820"
               className="text-white hover:text-orange-400 transition-colors duration-200 text-lg block mb-4"
             >
               +1 (929) 214-1820
             </a>
           </div>
           <div className="mb-8">
-            <a 
-              href="mailto:hello@resolute-logistics.com" 
+            <a
+              href="mailto:hello@resolute-logistics.com"
               className="text-white hover:text-orange-400 transition-colors duration-200 text-lg block"
             >
               hello@resolute-logistics.com
             </a>
           </div>
-          
+
           <div className="flex justify-center space-x-4 mb-8">
             <a
               href="#"
@@ -333,7 +344,7 @@ const Footer = () => {
 
         <div className="text-center space-y-6">
           <div className="text-orange-400 text-base font-semibold">THE #1 DISPATCH SERVICES</div>
-          
+
           <div className="space-y-4 text-base">
             <a href="#" className="text-white hover:text-orange-400 transition-colors duration-200 block">
               Sitemap
@@ -345,7 +356,7 @@ const Footer = () => {
               Terms & Conditions
             </a>
           </div>
-          
+
           <div className="text-white text-sm leading-relaxed pt-4">
             Copyright 2018 - 2025.<br />
             DevSum. All Rights Reserved.
@@ -357,4 +368,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

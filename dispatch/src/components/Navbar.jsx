@@ -1,4 +1,4 @@
-
+// Updated Navbar.jsx
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -44,7 +44,7 @@ const Navbar = () => {
   // Resetting states on resize
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) { 
+      if (window.innerWidth >= 768) {
         setIsMobileMenuOpen(false);
         setIsMobileDispatchOpen(false);
       }
@@ -108,15 +108,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0">
               <a href="/" className="block">
-                <img
-                  src="/src/assets/logo.svg"
-                  alt="Resolute Logistics Logo"
-                  className="h-10 w-auto"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.nextElementSibling.style.display = 'block';
-                  }}
-                />
+                <span className="text-white hover:text-orange-400 font-bold text-xl">FastEagleLogistics</span>
               </a>
             </div>
 
@@ -127,7 +119,7 @@ const Navbar = () => {
                   <div key={item.label} className="relative">
                     {item.hasDropdown ? (
                       <div className="relative" ref={dropdownRef}>
-                        <button 
+                        <button
                           onClick={() => setIsDispatchOpen(!isDispatchOpen)}
                           className="flex items-center text-white hover:text-orange-400 transition-colors duration-200 py-4 px-2 font-medium"
                         >
@@ -179,8 +171,8 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:block flex-shrink-0">
-              <a 
-                href="tel:+19292141820" 
+              <a
+                href="tel:+19292141820"
                 className="text-orange-400 transition-colors duration-200 font-medium"
               >
                 +1 (929) 214-1820
@@ -228,19 +220,12 @@ const Navbar = () => {
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat'
             }}
-          >         
-            
+          >
+
             <div className={`relative h-full flex flex-col ${isMobileDispatchOpen ? 'overflow-y-auto' : 'overflow-hidden'}`}>
               <div className="flex justify-between items-center p-6">
                 <a href="/" className="block">
-                  <img
-                    src="./src/assets/logo.svg"
-                    alt="Resolute Logistics Logo"
-                    className="h-8 w-auto"
-                    onError={(e) => {
-                      e.currentTarget.outerHTML = '<div class="text-orange-400 font-bold text-xl">RESOLUTE LOGISTICS</div>';
-                    }}
-                  />
+                  <div className="text-orange-400 font-bold text-xl">FastEagleLogistics</div>
                 </a>
                 <div className="flex items-center space-x-4">
                   <button
@@ -312,25 +297,25 @@ const Navbar = () => {
               </div>
 
               <div className="p-6 space-y-4 text-center mt-auto">
-                <a 
+                <a
                   href="mailto:hello@resolute-logistics.com"
                   className="block text-white text-lg hover:text-orange-400 transition-colors duration-200"
                 >
                   hello@resolute-logistics.com
                 </a>
-                <a 
+                <a
                   href="tel:+19292141820"
                   className="block text-white text-xl font-medium hover:text-orange-400 transition-colors duration-200"
                 >
                   +1 (929) 214-1820
                 </a>
-                <button 
+                <button
                   className="bg-transparent border-2 border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-200"
                   onClick={() => window.location.href = 'tel:+19292141820'}
                 >
                   Request a call
                 </button>
-                
+
                 <div className="flex justify-center space-x-4 mt-6">
                   <a
                     href="#"
@@ -364,5 +349,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
