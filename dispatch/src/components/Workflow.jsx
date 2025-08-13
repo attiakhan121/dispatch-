@@ -3,13 +3,15 @@ import { workflowData } from '../data/workflowData';
 import truck2 from '../assets/truck2.svg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useNavigate } from 'react-router-dom';
 
 export const Workflow = () => {
+  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({
       duration: 1000,
-       once: false,
+      once: false,
       mirror:true,
       offset: 100,
       easing: 'ease-out-cubic'
@@ -17,6 +19,10 @@ export const Workflow = () => {
 
     AOS.refresh();
   }, []);
+
+  const handleStartDispatchClick = () => {
+    navigate('/prices');
+  };
 
   const WorkflowCard = ({ step, index }) => {
     return (
@@ -28,7 +34,7 @@ export const Workflow = () => {
         <div className="text-center border-2 border-orange-400 border-dotted rounded-lg p-6 h-full flex flex-col justify-between">
           <div className="flex justify-center mb-4">
             <div className="w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center">
-              <span className="text-2xl font-bold text-black">
+              <span className="text-2xl font-bold text-white">
                 {step.number}
               </span>
             </div>
@@ -68,7 +74,7 @@ export const Workflow = () => {
           data-aos-duration="800"
         >
           <h2 className="text-3xl lg:text-5xl font-bold text-white mb-4">
-            Resolute Logistics Company as the Leading Freight Dispatching Service
+            Resolute Logistics Company as the <span className='text-orange-400'>Leading Freight</span> Dispatching Service
           </h2>
         </div>
 
@@ -88,7 +94,7 @@ export const Workflow = () => {
             <img 
               src={truck2} 
               alt="Truck Illustration" 
-              className="w-64 lg:w-80 xl:w-96 h-auto filter invert brightness-0 invert"
+              className="w-64 lg:w-80 xl:w-96 h-auto filter invert brightness-0 invert ml-30"
             />
           </div>
 
@@ -97,7 +103,10 @@ export const Workflow = () => {
             data-aos-delay="400"
             data-aos-duration="800"
           >
-            <button className="px-8 lg:px-12 py-4 bg-orange-400 text-black font-bold text-lg lg:text-xl rounded-full hover:bg-orange-500 transition-colors duration-300 shadow-lg whitespace-nowrap">
+            <button 
+              className="px-8 lg:px-12 py-4 bg-orange-400 text-white font-bold text-lg lg:text-xl rounded-full hover:bg-orange-500 transition-colors duration-300 shadow-lg whitespace-nowrap"
+              onClick={handleStartDispatchClick}
+            >
               Start Trucking Dispatch
             </button>
           </div>

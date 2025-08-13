@@ -19,6 +19,7 @@ import ServicesTwo from "./factoring/servicesTwo";
 import Testimonials from '../components/Testimonials';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
   const [openSection, setOpenSection] = useState(null);
@@ -26,6 +27,7 @@ function HomePage() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const [openFaqId, setOpenFaqId] = useState(null);
   const [isVideoModalOpen, setIsVideoModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleDropdownClick = (index) => {
     setOpenSection(openSection === index ? null : index);
@@ -41,6 +43,11 @@ function HomePage() {
 
   const handleVideoClose = () => {
     setIsVideoModal(false);
+  };
+
+  // navigate to the /prices page
+  const handleStartDispatchClick = () => {
+    navigate('/prices');
   };
 
   useEffect(() => {
@@ -100,7 +107,11 @@ function HomePage() {
 
         <div className="relative z-10 w-full h-full">
           {/* Main Content */}
-          <div className="absolute top-1/3 left-4 sm:left-8 md:left-16 lg:left-60 transform -translate-y-1/2 max-w-2xl">
+          <div 
+            className="absolute top-1/3 left-4 sm:left-8 md:left-16 lg:left-60 transform -translate-y-1/2 max-w-2xl"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight mb-6 leading-tight">
               Truck Dispatch Services
             </h1>
@@ -109,13 +120,20 @@ function HomePage() {
               carriers and fleet owners in the USA and Canada
             </p>
             <div className="text-center lg:text-left">
-              <button className="px-6 sm:px-8 py-3 bg-orange-400 text-white rounded-full text-base sm:text-lg shadow-lg hover:bg-orange-500 transition duration-300 cursor-pointer">
+              <button
+                className="px-6 sm:px-8 py-3 bg-orange-400 text-white rounded-full text-base sm:text-lg shadow-lg hover:bg-orange-500 transition duration-300 cursor-pointer"
+                onClick={handleStartDispatchClick}
+              >
                 Start Trucking Dispatch
               </button>
             </div>
           </div>
 
-          <div className="absolute bottom-16 sm:bottom-20 md:bottom-28 left-4 sm:left-8 md:left-16 lg:left-60 hidden lg:block">
+          <div 
+           className="absolute bottom-24 sm:bottom-28 md:bottom-32 lg:bottom-36 left-4 sm:left-8 md:left-16 lg:left-60 hidden lg:block"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
             <div className="flex items-center">
               <div className="flex space-x-4 sm:space-x-6 mr-8">
                 {[
@@ -126,7 +144,7 @@ function HomePage() {
                   <a
                     key={i}
                     href="#"
-                    className="bg-orange-400 text-black hover:bg-orange-300 transition-colors duration-200 p-2 sm:p-3 rounded"
+                    className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 sm:p-3 rounded"
                     aria-label={label}
                   >
                     <Icon className="w-4 h-4" />
@@ -173,17 +191,16 @@ function HomePage() {
         <div className="absolute inset-0 bg-black/30" />
         
         <div className="relative z-10 max-w-7xl mx-auto">
-          {/* Header */}
+
           <div className="text-center mb-16" data-aos="fade-up">
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-              Why choose Resolute Logistics
+              Why choose <span className='text-orange-400'>Resolute Logistics</span>
             </h2>
           </div>
 
-          {/* Content Layout */}
+
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            
-            {/* Left Side - Video */}
+
             <div className="flex justify-center lg:justify-center lg:pr-8" data-aos="fade-right">
               <div
                 className="relative group cursor-pointer"
@@ -195,7 +212,7 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Right Side - Text Content */}
+
             <div className="text-white space-y-6" data-aos="fade-left">
               <p className="text-base lg:text-lg leading-relaxed">
                 We provide dispatching services truckers trust in because we are 
@@ -223,24 +240,29 @@ function HomePage() {
                 your growth!
               </p>
 
-              {/* Action Buttons */}
+
               <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                <button className="px-8 py-3 bg-transparent border-2 border-orange-400 text-orange-400 rounded-full hover:bg-orange-400 hover:text-white transition duration-300 font-semibold">
+                <button
+                  className="px-8 py-3 bg-transparent border-2 border-orange-400 text-orange-400 rounded-full hover:bg-orange-400 hover:text-white transition duration-300 font-semibold"
+                  onClick={handleStartDispatchClick}
+                >
                   Start Trucking Dispatch
                 </button>
-                <button className="px-8 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold">
+                <button 
+                  className="px-8 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold"
+                  onClick={handleStartDispatchClick}
+                >
                   Prices
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Statistics Section */}
+
           <div className="mt-20 pt-16 border-t border-gray-700" data-aos="fade-up">
             <StatsSection />
           </div>
 
-          {/* Bottom Tagline */}
           <div className="text-center mt-16" data-aos="fade-up">
             <h3 className="text-2xl lg:text-4xl font-bold text-orange-400">
               Making your haul life easier!
@@ -270,13 +292,14 @@ function HomePage() {
       <section
         id="faqs"
         className="py-16 px-4 sm:px-6 lg:px-8 bg-[#002140] text-white"
+        data-aos="fade-up"
       >
         <div className="w-full max-w-5xl mx-auto">
-          <div className="text-center mb-12" data-aos="fade-up">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4">
-              FAQs about Trucking Dispatch
+          <div className="text-center mb-12">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4" data-aos="fade-up">
+              FAQs about <span className='text-orange-400'>Trucking Dispatch</span>
             </h1>
-            <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-300 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-sm sm:text-base text-gray-300 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
               Before you start working with Resolute Logistics, you may be
               interested in some questions about truck dispatch. We have
               collected the most popular ones here:

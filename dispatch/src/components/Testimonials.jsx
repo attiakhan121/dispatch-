@@ -86,8 +86,8 @@ const Testimonials = () => {
     <div className="relative max-w-6xl mx-auto px-4 py-12">
     
         <div className="text-center mb-12" data-aos="fade-up">
-          <h2 className="text-3xl md:text-5xl font-black text-white bg-clip-text bg-gradient-to-r from-white via-orange-200 to-orange-400 tracking-tight">
-            Clients Feedback
+          <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
+            Clients <span className='text-orange-400'>Feedback</span>
           </h2>
           <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light mt-4">
             Discover the extraordinary experiences our clients have shared with us
@@ -117,11 +117,11 @@ const Testimonials = () => {
                     
                   
                     <div className="relative">
-                      <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/20 transition-all duration-700 transform hover:scale-105">
+                      <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl ring-4 ring-white/20 transition-all duration-700 transform hover:scale-102">
                         <img
                           src={current.image}
                           alt={current.name}
-                          className="w-full h-full object-cover transition-all duration-700 hover:scale-110"
+                          className="w-full h-full object-cover transition-all duration-700 hover:scale-102"
                           loading="lazy"
                         />
                       </div>

@@ -2,21 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { SpecialitiesData } from '../data/specialitiesData';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useNavigate } from 'react-router-dom';
 
 export const SpecialitySection = () => {
   const [activeSpecialityId, setActiveSpecialityId] = useState(null);
   const [cardKey, setCardKey] = useState(0); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({
       duration: 1000,
-       once: false,
+      once: false,
       mirror:true, 
       offset: 100,
       easing: 'ease-out-cubic'
     });
 
-    // Default Active first one on desktop
     if (window.innerWidth >= 1024) { 
       setActiveSpecialityId(SpecialitiesData[0].id);
     }
@@ -31,6 +32,22 @@ export const SpecialitySection = () => {
   const handleSpecialityClick = (specialityId) => {
     setActiveSpecialityId(specialityId === activeSpecialityId ? null : specialityId);
     setTimeout(() => AOS.refresh(), 50);
+  };
+  
+  const handleLearnMoreClick = (title) => {
+    let path = `/${title.toLowerCase().replace(/\s/g, '-')}`;
+    
+    // Custom path for "Flat Bed & Step Deck"
+    if (title === 'Flat Bed / Step Deck') {
+      path = '/flat-bed-step-deck';
+    }
+
+    navigate(path);
+  };
+  
+  // New handler for the "Start Trucking Dispatch" button
+  const handleStartDispatchClick = () => {
+    navigate('/prices');
   };
 
   const activeSpeciality = SpecialitiesData.find(s => s.id === activeSpecialityId) || (window.innerWidth >= 1024 ? SpecialitiesData[0] : null);
@@ -82,7 +99,6 @@ export const SpecialitySection = () => {
           </div>
         </div>
 
-
         <div className="flex-1 flex items-center justify-center px-8 lg:px-16">
           <div className="max-w-3xl">
 
@@ -96,14 +112,12 @@ export const SpecialitySection = () => {
               </h2>
             </div>
 
-      
             <div 
               key={cardKey} 
               className="bg-white/30 backdrop-blur-md rounded-2xl p-8 lg:p-12 shadow-2xl transform -translate-x-9 -translate-y-9"
               data-aos="fade-left"
               data-aos-duration="600"
             >
-
               <div 
                 className="flex items-center mb-8"
                 data-aos="zoom-in"
@@ -122,7 +136,6 @@ export const SpecialitySection = () => {
                 </h3>
               </div>
     
-         
               <p 
                 className="text-base lg:text-lg text-gray-700 leading-relaxed mb-8"
                 data-aos="fade-up"
@@ -132,17 +145,22 @@ export const SpecialitySection = () => {
                 {activeSpeciality?.description}
               </p>
             
-       
               <div 
                 className="flex flex-col sm:flex-row gap-4"
                 data-aos="fade-up"
                 data-aos-delay="400"
                 data-aos-duration="500"
               >
-                <button className="px-8 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold text-lg">
+                <button 
+                  className="px-8 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold text-lg"
+                  onClick={handleStartDispatchClick}
+                >
                   Start Trucking Dispatch
                 </button>
-                <button className="px-8 py-3 bg-white text-black border border-black rounded-full hover:border-orange-400 hover:bg-orange-400 hover:text-white transition duration-300 font-semibold text-lg">
+                <button 
+                  className="px-8 py-3 bg-white text-black border border-black rounded-full hover:border-orange-400 hover:bg-orange-400 hover:text-white transition duration-300 font-semibold text-lg"
+                  onClick={() => handleLearnMoreClick(activeSpeciality?.title)}
+                >
                   Learn more
                 </button>
               </div>
@@ -162,7 +180,6 @@ export const SpecialitySection = () => {
           Specialities
         </h2>
 
-  
         <div 
           className="w-full max-w-md"
           data-aos="fade-up"
@@ -175,7 +192,6 @@ export const SpecialitySection = () => {
               data-aos="fade-up"
               data-aos-delay={300 + (index * 100)}
             >
-         
               <div
                 onClick={() => handleSpecialityClick(speciality.id)}
                 className={`flex justify-between items-center px-6 py-4 cursor-pointer transition-all duration-300 group
@@ -207,7 +223,6 @@ export const SpecialitySection = () => {
                 </div>
               </div>
 
-         
               <div
                 className={`grid transition-all duration-300 ease-in-out ${
                   activeSpecialityId === speciality.id ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
@@ -219,10 +234,16 @@ export const SpecialitySection = () => {
                       {speciality.description}
                     </p>
                     <div className="flex flex-col gap-4">
-                      <button className="px-6 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold text-base">
+                      <button 
+                        className="px-6 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold text-base"
+                        onClick={handleStartDispatchClick}
+                      >
                         Start Trucking Dispatch
                       </button>
-                      <button className="px-6 py-3 bg-transparent border-2 border-orange-400 text-orange-400 rounded-full hover:bg-orange-400 hover:text-white transition duration-300 font-semibold text-base">
+                      <button 
+                        className="px-6 py-3 bg-transparent border-2 border-orange-400 text-orange-400 rounded-full hover:bg-orange-400 hover:text-white transition duration-300 font-semibold text-base"
+                        onClick={() => handleLearnMoreClick(speciality.title)}
+                      >
                         Learn more
                       </button>
                     </div>

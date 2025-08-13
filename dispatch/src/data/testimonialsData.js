@@ -1,7 +1,7 @@
 export const testimonialsData = [
   {
     id: 1,
-    name: "Sarah Johnson",
+    name: "Michael Owen",
     title: "CEO",
     company: "Tech Innovations Inc",
     image: "https://resolute-logistics.com/optimized/uploads/teams/team_1_457.png",
@@ -10,7 +10,7 @@ export const testimonialsData = [
   },
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Emma Jones",
     title: "Operations Director",
     company: "Global Solutions",
     image: "https://resolute-logistics.com/optimized/uploads/teams/team_9_457@2x.webp",
@@ -19,7 +19,7 @@ export const testimonialsData = [
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
+    name: "John Carlos",
     title: "Marketing Manager",
     company: "Creative Studios",
     image: "https://resolute-logistics.com/optimized/uploads/teams/teams_4_457@2x.webp",
@@ -37,7 +37,7 @@ export const testimonialsData = [
   },
   {
     id: 5,
-    name: "Lisa Parker",
+    name: "Robert Downy",
     title: "Project Manager",
     company: "Innovation Labs",
     image: "https://resolute-logistics.com/optimized/uploads/teams/team_6_457@2x.webp",
@@ -46,7 +46,7 @@ export const testimonialsData = [
   },
   {
     id: 6,
-    name: "Robert Williams",
+    name: "John Williams",
     title: "Business Development",
     company: "Strategic Partners",
     image: "https://resolute-logistics.com/optimized/uploads/teams/team_5_457@2x.webp",

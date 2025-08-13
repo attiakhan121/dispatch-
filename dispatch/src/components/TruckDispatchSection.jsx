@@ -45,7 +45,7 @@ export const TruckDispatchingSection = () => {
               data-aos-delay="100"
             >
               <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight">
-                What Does Truck Dispatching Include
+                What Does <span className='text-orange-400'>Truck Dispatching</span> Include
               </h1>
               
               <p className="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-2xl">

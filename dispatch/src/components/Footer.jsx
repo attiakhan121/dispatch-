@@ -149,21 +149,21 @@ const Footer = () => {
               <div className="flex justify-end space-x-3">
                 <a
                   href="#"
-                  className="bg-orange-400 text-black hover:bg-orange-400 transition-colors duration-200 p-2 rounded"
+                  className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 rounded"
                   aria-label="YouTube"
                 >
                   <Youtube className="w-4 h-4" />
                 </a>
                 <a
                   href="#"
-                  className="bg-orange-400 text-black hover:bg-orange-400 transition-colors duration-200 p-2 rounded"
+                  className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 rounded"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a
                   href="#"
-                  className="bg-orange-400 text-black hover:bg-orange-400 transition-colors duration-200 p-2 rounded"
+                  className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 rounded"
                   aria-label="Facebook"
                 >
                   <Facebook className="w-4 h-4" />
@@ -320,21 +320,21 @@ const Footer = () => {
           <div className="flex justify-center space-x-4 mb-8">
             <a
               href="#"
-              className="bg-orange-400 text-black hover:bg-orange-400 transition-colors duration-200 p-3 rounded"
+              className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
               aria-label="YouTube"
             >
               <Youtube className="w-5 h-5" />
             </a>
             <a
               href="#"
-              className="bg-orange-400 text-black hover:bg-orange-400 transition-colors duration-200 p-3 rounded"
+              className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="#"
-              className="bg-orange-400 text-black hover:bg-orange-400 transition-colors duration-200 p-3 rounded"
+              className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
               aria-label="Facebook"
             >
               <Facebook className="w-5 h-5" />

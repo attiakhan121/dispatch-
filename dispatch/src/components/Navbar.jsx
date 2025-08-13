@@ -183,7 +183,7 @@ const Navbar = () => {
             <div className="md:hidden flex items-center space-x-4">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-white font-medium hover:text-gray-300 transition-colors duration-200"
+                className="text-white font-medium hover:text-orange-400 transition-colors duration-200"
               >
                 MENU
               </button>
@@ -192,13 +192,20 @@ const Navbar = () => {
                 className="text-white hover:text-gray-300 transition-colors duration-200"
               >
                 <img
-                  src="./src/assets/menu.svg"
-                  alt="Menu"
-                  className="w-6 h-6"
-                  onError={(e) => {
-                    e.currentTarget.outerHTML = '<div class="w-6 h-6 flex flex-col justify-center space-y-1"><div class="w-6 h-0.5 bg-white"></div><div class="w-6 h-0.5 bg-white"></div><div class="w-6 h-0.5 bg-white"></div></div>';
-                  }}
-                />
+                    src="./src/assets/menu.svg"
+                    alt="Menu"
+                    className="w-6 h-6 invert"
+                    onError={(e) => {
+                      e.currentTarget.outerHTML = `
+                        <div class="w-6 h-6 flex flex-col justify-center space-y-1">
+                          <div class="w-6 h-0.5 bg-white"></div>
+                          <div class="w-6 h-0.5 bg-white"></div>
+                          <div class="w-6 h-0.5 bg-white"></div>
+                        </div>
+                      `;
+                    }}
+                  />
+
               </button>
             </div>
           </div>
@@ -230,13 +237,13 @@ const Navbar = () => {
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-orange-400 font-medium hover:text-orange-300 transition-colors duration-200"
+                    className="text-orange-400 font-medium hover:text-orange-500 transition-colors duration-200"
                   >
                     CLOSE
                   </button>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-orange-400 hover:text-orange-300 transition-colors duration-200"
+                    className="text-orange-400 hover:text-orange-500 transition-colors duration-200"
                   >
                     <X className="w-6 h-6" />
                   </button>
@@ -310,7 +317,7 @@ const Navbar = () => {
                   +1 (929) 214-1820
                 </a>
                 <button
-                  className="bg-transparent border-2 border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-200"
+                  className="bg-transparent border-2 border-orange-400 text-white px-6 py-2 rounded-full hover:bg-orange-400 hover:text-black transition-all duration-200"
                   onClick={() => window.location.href = 'tel:+19292141820'}
                 >
                   Request a call
@@ -319,21 +326,21 @@ const Navbar = () => {
                 <div className="flex justify-center space-x-4 mt-6">
                   <a
                     href="#"
-                    className="bg-orange-400 text-black hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
+                    className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
                     aria-label="YouTube"
                   >
                     <Youtube className="w-5 h-5" />
                   </a>
                   <a
                     href="#"
-                    className="bg-orange-400 text-black hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
+                    className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
                     href="#"
-                    className="bg-orange-400 text-black hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
+                    className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
                     aria-label="Facebook"
                   >
                     <Facebook className="w-5 h-5" />

@@ -29,7 +29,7 @@ export default function ScrollUp() {
       {showButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-10 right-10 bg-orange-400 text-white p-3 rounded-xl shadow-lg hover:bg-orange-500 transition-colors duration-300 z-50"
+          className="fixed bottom-10 right-10 bg-orange-400 text-white p-3 rounded-xl shadow-lg hover:bg-orange-500 transition-colors duration-300 z-50 cursor-pointer"
           aria-label="Scroll to top"
         >
           <ChevronUp className="w-6 h-6" />
