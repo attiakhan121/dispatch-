@@ -13,7 +13,7 @@ import { FaqsCard } from '../components/FaqsCard';
 import { StatsSection } from '../components/StatsSection';
 import { VideoModal } from '../components/VideoModal';
 import { TruckDispatchingSection } from '../components/TruckDispatchSection';
-import { EnhancedWorkflow } from '../components/EnhancedWorkflow';
+import { Workflow } from '../components/Workflow';
 import { SpecialitySection } from '../components/SpecialitySection';
 import Testimonials from '../components/Testimonials';
 
