@@ -8,6 +8,9 @@ import { PricesPage } from "./pages/prices";
 import NotFound from "./components/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollUp from "./components/ScrollUp";
+import Power_Only from './pages/Power_Only';
+import Hotshot from './pages/Hotshot'; 
+import Privacy_Notice from './pages/Privacy_Notice';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 const App = () => {
@@ -21,6 +24,9 @@ const App = () => {
         <Route path="/factoring-services" element={<FactoringPage />} />
         <Route path="/prices" element={<PricesPage />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/power-only" element={<Power_Only />} /> 
+        <Route path="/hotshot" element={<Hotshot />} /> 
+        <Route path="/privacy-notice" element={<Privacy_Notice/>} />
       </Routes>
       <ScrollUp />
       <Footer />
