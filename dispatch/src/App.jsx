@@ -13,7 +13,8 @@ import Hotshot from './pages/Hotshot';
 import Privacy_Notice from './pages/Privacy_Notice';
 import StepDeck from './pages/StepDeck';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
+import About_page from './pages/about';
+import Refeer_page from './pages/Refeer';
 const App = () => {
   return (
     <Router>
