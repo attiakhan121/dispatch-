@@ -21,7 +21,7 @@ const Navbar = () => {
   const dispatchDropdownItems = [
     { label: 'Box truck', href: '/box-truck' },
     { label: 'Dry Van', href: '/dry-van' },
-    { label: 'Reefer', href: '/reefer' },
+    { label: 'Reefer', href: '/Refeer' },
     { label: 'Power Only', href: '/power-only' },
     { label: 'Hotshot', href: '/hotshot' },
     { label: 'Flat Bed / Step Deck', href: '/flat-bed-step-deck' },

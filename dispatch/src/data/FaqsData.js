@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-export const FaqsData = [
+export  const FaqsData = [
   {
     id: 1,
     question: "How Can the Dispatch Company Help Me to Get Loads?",
