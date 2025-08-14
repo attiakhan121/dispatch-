@@ -88,7 +88,7 @@ function HomePage() {
   const FaqsColumn2 = FaqsData.slice(3, 6);
 
   return (
-    <div className="min-h-screen bg-[#002147] text-white font-sans antialiased">
+    <div className="min-h-screen bg-[#002147] text-white font-sans antialiased overflow-hidden">
       {/* Hero Section */}
       <section
         id="hero"
@@ -274,7 +274,7 @@ function HomePage() {
       {/* Section 6 - Prices */}
       <section
         id="prices"
-        className="bg-[#002140] w-full overflow-hidden"
+        className="bg-[#002140]"
       >
       { <ServicesTwo /> }
       </section>
