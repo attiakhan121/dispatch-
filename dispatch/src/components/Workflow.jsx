@@ -94,7 +94,7 @@ export const Workflow = () => {
             <img 
               src={truck2} 
               alt="Truck Illustration" 
-              className="w-64 lg:w-80 xl:w-96 h-auto filter invert brightness-0 invert ml-30"
+              className="w-64 lg:w-80 xl:w-96 h-auto filter invert brightness-0 invert ml-5"
             />
           </div>
 
