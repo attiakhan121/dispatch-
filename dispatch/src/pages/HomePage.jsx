@@ -274,7 +274,7 @@ function HomePage() {
       {/* Section 6 - Prices */}
       <section
         id="prices"
-        className="bg-[#002140]"
+        className="bg-[#002140] w-full overflow-hidden"
       >
       { <ServicesTwo /> }
       </section>

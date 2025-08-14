@@ -14,7 +14,11 @@ import Privacy_Notice from './pages/Privacy_Notice';
 import StepDeck from './pages/StepDeck';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import About_page from './pages/about';
-import Refeer_page from './pages/Refeer';
+import Refeer from './pages/Refeer';
+
+import BoxTruck from './pages/Boxtruck';
+import DryVan from './pages/DryVan';
+
 const App = () => {
   return (
     <Router>
@@ -25,7 +29,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/box-truck" element={<BoxTruck />} />
         <Route path="/dry-van" element={<DryVan />} />
-        <Route path="/reefer" element={<Refeer />} />
+        <Route path="/refeer" element={<Refeer />} />
         <Route path="/factoring-services" element={<FactoringPage />} />
         <Route path="/prices" element={<PricesPage />} />
         <Route path="*" element={<NotFound />} />
@@ -34,7 +38,7 @@ const App = () => {
         <Route path="/flat-bed-step-deck" element={<StepDeck />}/> 
         <Route path="/privacy-notice" element={<Privacy_Notice/>} />
         <Route path="/about" element={< About_page />} />
-        <Route path="/refeer" element={< Refeer_page />} />
+
       </Routes>
       <ScrollUp />
       <Footer />
