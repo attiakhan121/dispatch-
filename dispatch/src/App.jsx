@@ -30,6 +30,8 @@ const App = () => {
         <Route path="/hotshot" element={<Hotshot />} /> 
         <Route path="/flat-bed-step-deck" element={<StepDeck />}/> 
         <Route path="/privacy-notice" element={<Privacy_Notice/>} />
+        <Route path="/about" element={< About_page />} />
+        <Route path="/refeer" element={< Refeer_page />} />
       </Routes>
       <ScrollUp />
       <Footer />
