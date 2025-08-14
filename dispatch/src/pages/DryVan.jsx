@@ -4,11 +4,11 @@ import Truck from "../../public/truck";
 import Questions from "./../components/Questions";
 import Form from "../components/Form";
 
-function BoxTruck() {
+function DryVan() {
   return (
     <div className="div">
       {/* header */}
-      <div className="flex justify-center items-center bg-[url('/bxtruck_320.jpg')] bg-cover bg-center bg-no-repeat overflow-x-hidden 2xl:h-[50vh] h-[100vh] relative">
+      <div className="flex justify-center items-center bg-[url('https://resolute-logistics.com/optimized/uploads/services/dry-van_768.webp')] bg-cover bg-center bg-no-repeat overflow-x-hidden 2xl:h-[50vh] h-[100vh] relative">
         <div className="absolute inset-0 bg-black/40 backdrop-blur-sm">
           <div className="flex justify-center items-center w-full h-full max-w-screen relative z-10 px-4">
             <div className="content max-w-[600px] w-full">
@@ -16,16 +16,18 @@ function BoxTruck() {
                 Box Truck Dispatch Service
               </h1>
               <p className="text-white text-sm sm:text-base md:text-lg mt-4 text-center mb-[15px] leading-relaxed">
-                Sick and tired of struggling with paperwork and hunting for
-                decent freight rates in between trips? Our box truck dispatch
-                service will relieve you of all the common headaches truck
-                drivers are forced to encounter daily.
+                If you are looking for ways to earn more money running your dry
+                van business, Resolute Logistics has the solution. Thanks to 15
+                years of combined experience in freight brokerage, we know all
+                those roadblocks on the flow of loads and shipping orders that
+                keep your profits below your expectations. From a confusing
+                amount of paperwork to lack of communication and hands-on
+                support in emergency situations, our dry van dispatcher will fix
+                every problem, boost your earnings, and ensure the steady growth
+                of your business.
               </p>
               <p className="text-white text-sm sm:text-base md:text-lg mt-4 text-center leading-relaxed">
-                Sick and tired of struggling with paperwork and hunting for
-                decent freight rates in between trips? Our box truck dispatch
-                service will relieve you of all the common headaches truck
-                drivers are forced to encounter daily.
+                Interested? Your dry van dispatch service can be hired here.
               </p>
             </div>
           </div>
@@ -37,9 +39,14 @@ function BoxTruck() {
         <div className="flex flex-col lg:flex-row mt-20 lg:mt-40 gap-6 lg:gap-10 mb-2 px-4 lg:px-0 w-full max-w-7xl">
           <div className="content flex flex-col max-w-full lg:max-w-[45vw] w-full">
             <h1 className="text-black font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-5 leading-tight">
-              Get the best Dry Van loads with our expert dispatchers
+              Experts in Dispatching Box Trucks Help You Grow
             </h1>
             <p className="text-black mb-6 leading-relaxed text-sm md:text-base">
+              Having 15 years of experience in freight brokerage, we are very
+              much aware of the benefits you can derive from owning or leasing a
+              box truck.
+            </p>
+            <p className="text-black leading-relaxed text-sm md:text-base">
               Having 15 years of experience in freight brokerage, we are very
               much aware of the benefits you can derive from owning or leasing a
               box truck.
@@ -187,4 +194,4 @@ function BoxTruck() {
   );
 }
 
-export default BoxTruck;
+export default DryVan;
