@@ -1,8 +1,8 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import Contact from './pages/ContactUs';
+import React from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import HomePage from "./pages/HomePage";
+import Contact from "./pages/ContactUs";
 import FactoringPage from "./pages/factoring/index";
 import { PricesPage } from "./pages/prices";
 import NotFound from "./components/NotFound";
@@ -23,6 +23,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/box-truck" element={<BoxTruck />} />
+        <Route path="/dry-van" element={<DryVan />} />
+        <Route path="/reefer" element={<Refeer />} />
         <Route path="/factoring-services" element={<FactoringPage />} />
         <Route path="/prices" element={<PricesPage />} />
         <Route path="*" element={<NotFound />} />
