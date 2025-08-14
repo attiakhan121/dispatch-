@@ -15,6 +15,7 @@ import StepDeck from "./pages/StepDeck";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import BoxTruck from "./pages/Boxtruck";
 import DryVan from "./pages/DryVan";
+import Refeer from "./pages/Refeer";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/box-truck" element={<BoxTruck />} />
         <Route path="/dry-van" element={<DryVan />} />
+        <Route path="/reefer" element={<Refeer />} />
         <Route path="/factoring-services" element={<FactoringPage />} />
         <Route path="/prices" element={<PricesPage />} />
         <Route path="*" element={<NotFound />} />
